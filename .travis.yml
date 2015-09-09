@@ -1,0 +1,29 @@
+sudo: False
+
+language: python
+
+python:
+    - "2.7"
+
+addons:
+  postgresql: "9.3"
+
+services:
+    - mongodb
+    - postgres
+
+install:
+    pip install --upgrade pip
+    pip install -r requirements.txt
+
+script:
+    - nosetests --with-coverage --with-doctests --cover-package=server
+
+after_success:
+    - coveralls
+
+notifications:
+    email:
+        on_success: false
+        on_failure: always
+        on_start: false

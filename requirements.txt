@@ -1,0 +1,10 @@
+# Required for the program
+flask
+pymongo
+flask-restful
+flask-pymongo
+
+# Required for tests
+nose
+coverage
+requests
