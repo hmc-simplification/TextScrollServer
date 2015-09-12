@@ -61,3 +61,6 @@ target/
 
 # Virtual Environment
 TextScroll/
+
+# MongoDB database
+data/

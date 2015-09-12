@@ -1,6 +1,6 @@
-# Required for the program
+# Required for the server
 flask
-pymongo
+pymongo<3.0
 flask-restful
 flask-pymongo
 
@@ -8,3 +8,4 @@ flask-pymongo
 nose
 coverage
 requests
+flake8

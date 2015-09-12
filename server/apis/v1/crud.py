@@ -11,9 +11,9 @@ class Trial(Resource):
             return jsonify(get_records(trial_id))
         except ValueError:
             return make_response(
-                ('A trial with this value does not exist'),
-                400,
-                [{}]
+                ('A trial with this value does not exist',
+                 400,
+                 [{}])
             )
 
     def post(self, trial_id):

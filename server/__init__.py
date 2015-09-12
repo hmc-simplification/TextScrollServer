@@ -4,6 +4,7 @@ from flask import Flask
 from flask_restful import Api
 
 import apis
+from database import mongo
 
 
 app = Flask(__name__)
@@ -24,6 +25,7 @@ def register_api_endpoints():
 
 
 register_api_endpoints()
+mongo.init_app(app)
 
 
 @app.route("/")

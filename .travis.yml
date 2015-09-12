@@ -5,19 +5,20 @@ language: python
 python:
     - "2.7"
 
-addons:
-  postgresql: "9.3"
-
 services:
     - mongodb
-    - postgres
 
 install:
-    pip install --upgrade pip
-    pip install -r requirements.txt
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+
+before_script:
+    - mongo textscrolldb_test --eval 'db.addUser("travis", "test");'
+
 
 script:
-    - nosetests --with-coverage --with-doctests --cover-package=server
+    - nosetests --with-coverage --with-doctest --cover-package=server
+    - flake8 .
 
 after_success:
     - coveralls
