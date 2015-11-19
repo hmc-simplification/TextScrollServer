@@ -9,3 +9,4 @@ nose
 coverage
 requests
 flake8
+pep257
