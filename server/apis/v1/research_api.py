@@ -1,27 +1,29 @@
 from flask import jsonify, make_response, request
 from flask_restful import Resource
 
-from server.database import get_records, add_records, remove_records
+from server.database import get_trial_data, add_trial_data, remove_trial_data, \
+    get_all_trials_for_user
 
 
 class Trial(Resource):
 
-    def get(self, trial_id):
+    def get(self, user_id, trial_id):
         try:
-            return jsonify(get_records(trial_id))
+            trial = get_trial_data(user_id, trial_id)
+            return jsonify(trial)
         except ValueError:
             return make_response(
-                ('A trial with this value does not exist',
+                ('A user {} or trial {} does not exist'.format(
+                    user_id, trial_id),
                  400,
                  [{}])
             )
 
-    def post(self, trial_id):
+    def post(self, user_id, trial_id):
         trial_data = request.args.get('trial_data')
         try:
-            add_records(trial_id, trial_data)
+            add_trial_data(user_id, trial_id, trial_data)
         except ValueError:
-            # There is already a value for this trial id
             return make_response(
                 ('A trial with this value already exists',
                  400,
@@ -34,9 +36,9 @@ class Trial(Resource):
                  [{}])
             )
 
-    def delete(self, trial_id):
+    def delete(self, user_id, trial_id):
         try:
-            remove_records(trial_id)
+            remove_trial_data(user_id, trial_id)
         except ValueError:
             # There is no trial for this id
             return make_response(
@@ -54,5 +56,5 @@ class Trial(Resource):
 
 class Trials(Resource):
 
-    def get(self):
-        return jsonify(get_records())
+    def get(self, user_id):
+        return jsonify(get_all_trials_for_user(user_id))

@@ -2,6 +2,7 @@
 flask
 pymongo<3.0
 flask-restful
+flask-bcrypt
 flask-pymongo
 
 # Required for tests

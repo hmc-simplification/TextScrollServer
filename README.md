@@ -1,4 +1,4 @@
-[![Build passed](https://travis-ci.org/Dannnno/TextScrollServer.svg?branch=master)](https://travis-ci.org/Dannnno/TextScrollServer)
+[![Build passed](https://travis-ci.org/Dannnno/TextScrollServer.svg?branch=master)](https://travis-ci.org/hmc-simplification/TextScrollServer)
 [![Coverage Status](https://coveralls.io/repos/Dannnno/TextScrollServer/badge.png)](https://coveralls.io/r/Dannnno/TextScrollServer)
 
 # TextScrollServer

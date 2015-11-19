@@ -6,4 +6,4 @@ endpoints = [
     (Trials, "trials")
 ]
 
-__all__ = ['crud_api', 'endpoints']
+__all__ = ('crud_api', 'endpoints')

@@ -3,20 +3,58 @@ from flask_pymongo import PyMongo
 
 mongo = PyMongo()
 
-def get_records(trial_id=None):
-    if trial_id is not None:
-        return mongo.db.trials.find_one({'_id': trial_id})
+
+def user_exists(user_id):
+    user = mongo.db.users.find_one({'_id': user_id})
+
+    return user is None
+
+def add_user(user_id, password):
+    if user_exists(user_id):
+        raise ValueError("User {} already exists".format(user_id))
+
+    mongo.db.users.insert({'_id': user_id, 'trials': []})
+
+
+
+
+def get_trial_data(user_id, trial_id):
+    trial = mongo.db.users.find_one(
+        {'_id': user_id, 
+         'trials': {'$in': trial_id}
+        }
+    )
+
+    if trial is None:
+        raise ValueError(
+            "No trial found for user id {} and trial id {}".format(
+                user_id, trial_id
+            )
+        )
+
+    return trial
+
+
+def add_trial_data(user_id, trial_id, trial_data):
+    user = mongo.db.users.find_one({'_id': user_id})
+
+    if user is None:
+        mongo.db.users.insert(
+            {'_id': user_id,
+             'trials': [{trial_id: trial_data}]
+            }
+        )
     else:
-        return mongo.db.trials.find()
+        trial = mongo.db.users.find_one(
+            {'_id': user_id, 'trials': {'$in': trial_id}}
+        )
+        if trial is None:
+            mongo.db.users.
 
 
-def add_records(trial_id, trial_data):
-    inserted_id = mongo.db.trials.insert_one(
-        {'_id': trial_id, 'data': trial_data}
-    ).inserted_id
-    return inserted_id
+def delete_trial_data(user_id, trial_id):
+    raise NotImplementedError
 
 
-def remove_records(trial_id):
-    deleted_count = mongo.db.users.delete_one({'_id': trial_id}).deleted_count
-    return deleted_count
+def get_all_trials_for_user(user_id):
+    raise NotImplementedError

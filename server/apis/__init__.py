@@ -12,4 +12,4 @@ versions = [
     if _match.match(directory)
 ]
 
-__all__ = ['versions'] + versions
+__all__ = ('versions',) + versions
