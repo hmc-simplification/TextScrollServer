@@ -11,3 +11,6 @@ coverage
 requests
 flake8
 pep257
+sphinx
+numpydoc
+sphinxcontrib-httpdomain
