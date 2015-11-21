@@ -1,0 +1,35 @@
+sudo: False
+
+language: python
+
+matrix:
+  include:
+    - python: "2.6"
+    - python: "2.7"
+    - python: "3.3"
+    - python: "3.4"
+    - python: "3.5"
+  allow_failures:
+    - python: "2.6"
+    - python: "3.3"
+    - python: "3.4"
+    - python: "3.5"
+  fast_finish: true
+
+services:
+    - mongodb
+
+install:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+
+before_script:
+    - mongo textscrolldb_test --eval 'db.addUser("travis", "test");'
+
+script:
+    - nosetests --with-coverage --with-doctest --cover-package=server
+    - flake8 .
+    - pep257 .
+
+after_success:
+    - coveralls

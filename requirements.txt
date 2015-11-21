@@ -1,0 +1,13 @@
+# Required for the server
+flask
+pymongo<3.0
+flask-restful
+flask-bcrypt
+flask-pymongo
+
+# Required for tests
+nose
+coverage
+requests
+flake8
+pep257
