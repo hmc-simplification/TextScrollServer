@@ -5,9 +5,12 @@ flask-restful
 flask-bcrypt
 flask-pymongo
 
-# Required for tests
+# Required for tests and documentation
 nose
 coverage
 requests
 flake8
 pep257
+sphinx
+numpydoc
+sphinxcontrib-httpdomain
