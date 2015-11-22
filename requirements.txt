@@ -5,7 +5,7 @@ flask-restful
 flask-bcrypt
 flask-pymongo
 
-# Required for tests
+# Required for tests and documentation
 nose
 coverage
 requests

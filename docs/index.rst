@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
 Welcome to TextScrollServer's documentation!
 ============================================
+
+.. include:: ../README.rst
 
 Contents:
 
@@ -12,7 +15,6 @@ Contents:
    :maxdepth: 2
 
    APIv1
-
 
 
 Indices and tables
