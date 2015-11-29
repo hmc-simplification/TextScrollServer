@@ -1,3 +1,5 @@
+"""Runs the server."""
+
 from server import app
 
 

@@ -1,3 +1,5 @@
+"""Back-end server for the TextScroll application."""
+
 import importlib
 
 from flask import Flask
@@ -10,10 +12,10 @@ app = Flask(__name__)
 app.config['ERROR_404_HELP'] = False
 
 app.config.update(
-    ERROR_404_HELP = False
+    ERROR_404_HELP=False
 )
 
-from . import database
+from . import database   # noqa
 
 api = Api(app)
 

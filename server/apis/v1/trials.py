@@ -1,3 +1,5 @@
+"""API for trial operations."""
+
 from flask import jsonify, make_response, request
 from flask.ext.restful import Resource
 
@@ -63,6 +65,3 @@ from flask.ext.restful import Resource
 
 # #     def get(self, user_id):
 # #         return jsonify(get_all_trials_for_user(user_id))
-
-
-

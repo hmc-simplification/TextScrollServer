@@ -1,3 +1,5 @@
+"""API for user operations."""
+
 from flask import jsonify, make_response, request
 from flask.ext.restful import Resource
 
@@ -63,7 +65,6 @@ class User(Resource):
         except Exception:
             return make_response("An unknown error occurred.", 500)
 
-
     def post(self, user_id):
         """Create a new user with id `user_id`.
 
@@ -83,13 +84,13 @@ class User(Resource):
 
         try:
             if return_code == UserCodes.USER_CREATED:
-                return make_response(("User {} created!".format(user_id), {}, 201))
+                return make_response("User {} created!".format(user_id), 201)
             elif return_code == UserCodes.USER_EXISTS:
                 return make_response(
-                    ("User id {} already exists.".format(user_id), {}, 400)
+                    "User id {} already exists.".format(user_id), 400
                 )
             elif return_code == UserCodes.USER_INVALID:
-                return make_response(("User id or password is invalid.", {}, 400))
+                return make_response("User id or password is invalid.", 400)
             else:
                 raise Exception()
         except Exception:
@@ -114,13 +115,13 @@ class User(Resource):
 
         try:
             if return_code == UserCodes.USER_CREATED:
-                return make_response(("User {} created!".format(user_id), {}, 201))
+                return make_response("User {} created!".format(user_id), 201)
             elif return_code == UserCodes.USER_UPDATED:
                 return make_response(
-                    ("User id {} was updated.".format(user_id), {}, 200)
+                    "User id {} was updated.".format(user_id), 200
                 )
             elif return_code == UserCodes.USER_INVALID:
-                return make_response(("User id or password is invalid.", {}, 400))
+                return make_response("User id or password is invalid.", 400)
             else:
                 raise Exception()
         except Exception:

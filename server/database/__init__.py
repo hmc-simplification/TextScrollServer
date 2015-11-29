@@ -1,3 +1,5 @@
+"""Database operations."""
+
 from flask.ext.pymongo import PyMongo
 from flask.ext.bcrypt import Bcrypt
 

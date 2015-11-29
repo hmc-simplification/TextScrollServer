@@ -1,3 +1,5 @@
+"""The API of the backend-server."""
+
 import os as os
 import re as re
 
