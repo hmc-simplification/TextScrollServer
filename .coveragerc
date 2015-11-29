@@ -1,8 +1,0 @@
-[report]
-omit =
-    */python??/*
-    */python?.?/*
-    */site-packages/*
-    */__init__.py
-    */tests/*
-    */TextScroll/*

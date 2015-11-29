@@ -1,0 +1,10 @@
+from enum import Enum
+
+
+class UserCodes(Enum):
+	USER_EXISTS = 0
+	USER_CREATED = 1
+	USER_UPDATED = 2
+	USER_NOT_FOUND = 100
+	USER_NOT_AUTHENTICATED = 101
+	USER_INVALID = 102

@@ -1,9 +1,8 @@
-from crud import Trial, Trials
+from users import User, Users#, Setting, Settings, Library, Libraries
+#from trials import Trials, Trial
 
 
 endpoints = [
-    (Trial, "trial/<int:trial_id>"),
-    (Trials, "trials")
+	(User, "users/<string:user_id>"),
+	(Users, "users")
 ]
-
-__all__ = ('crud_api', 'endpoints')
