@@ -1,5 +1,8 @@
 """API for user operations."""
 
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
 from flask import jsonify, make_response, request
 from flask.ext.restful import Resource
 
@@ -56,7 +59,7 @@ class User(Resource):
                 return jsonify(user_data)
             elif return_code == UserCodes.USER_NOT_FOUND:
                 return make_response(
-                    "User with id {} could not be found".format(user_id), 404
+                    "User with id {0} could not be found".format(user_id), 404
                 )
             elif return_code == UserCodes.USER_NOT_AUTHENTICATED:
                 return make_response("Authentication Failed", 403)
@@ -84,10 +87,10 @@ class User(Resource):
 
         try:
             if return_code == UserCodes.USER_CREATED:
-                return make_response("User {} created!".format(user_id), 201)
+                return make_response("User {0} created!".format(user_id), 201)
             elif return_code == UserCodes.USER_EXISTS:
                 return make_response(
-                    "User id {} already exists.".format(user_id), 400
+                    "User id {0} already exists.".format(user_id), 400
                 )
             elif return_code == UserCodes.USER_INVALID:
                 return make_response("User id or password is invalid.", 400)
@@ -115,10 +118,10 @@ class User(Resource):
 
         try:
             if return_code == UserCodes.USER_CREATED:
-                return make_response("User {} created!".format(user_id), 201)
+                return make_response("User {0} created!".format(user_id), 201)
             elif return_code == UserCodes.USER_UPDATED:
                 return make_response(
-                    "User id {} was updated.".format(user_id), 200
+                    "User id {0} was updated.".format(user_id), 200
                 )
             elif return_code == UserCodes.USER_INVALID:
                 return make_response("User id or password is invalid.", 400)

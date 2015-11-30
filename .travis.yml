@@ -29,7 +29,7 @@ before_script:
     - mongo textscrolldb_test --eval 'db.addUser("travis", "test");'
 
 script:
-    - nosetests --with-coverage --with-doctest --cover-package=server
+    - nosetests
     - flake8 .
     - pep257 .
     - sphinx-build docs docs/_build

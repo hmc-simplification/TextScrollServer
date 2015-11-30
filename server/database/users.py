@@ -1,5 +1,8 @@
 """Database operations for users."""
 
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
 from . import mongo, bcrypt
 from ..codes import UserCodes
 

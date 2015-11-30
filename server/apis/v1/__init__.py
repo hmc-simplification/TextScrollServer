@@ -1,6 +1,9 @@
 """Version 1 of the API."""
 
-from users import User, Users
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
+from .users import User, Users
 
 
 endpoints = [

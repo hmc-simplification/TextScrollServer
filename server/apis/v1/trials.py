@@ -1,5 +1,8 @@
 """API for trial operations."""
 
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
 from flask import jsonify, make_response, request
 from flask.ext.restful import Resource
 

@@ -1,3 +1,6 @@
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
 import json
 
 from nose.tools import with_setup
@@ -35,7 +38,7 @@ def remove_user(user_id):
 def test_get_existing_user():
     client = app.test_client()
     response = client.get('/api/v1/users/3')
-    response_contents = json.loads(next(response.response))
+    response_contents = json.loads(next(response.response).decode('utf-8'))
     assert response.status_code == 200
     assert response.headers['Content-Type'] == 'application/json'
     assert response_contents['_id'] == '3'

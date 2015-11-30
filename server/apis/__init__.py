@@ -1,7 +1,10 @@
 """The API of the backend-server."""
 
-import os as os
-import re as re
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
+import os
+import re
 
 
 matcher = re.compile(r"^v\d+$")
