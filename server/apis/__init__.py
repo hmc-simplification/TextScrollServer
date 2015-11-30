@@ -1,15 +1,18 @@
-import os as _os
-import re as _re
+"""The API of the backend-server."""
+
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
+import os
+import re
 
 
-_match = _re.compile(r"^v\d+$")
+matcher = re.compile(r"^v\d+$")
 
-_basedir = _os.path.dirname(_os.path.abspath(__file__))
+basedir = os.path.dirname(os.path.abspath(__file__))
 
-versions = [
+versions = tuple(
     directory
-    for directory in _os.listdir(_basedir)
-    if _match.match(directory)
-]
-
-__all__ = ('versions',) + versions
+    for directory in os.listdir(basedir)
+    if matcher.match(directory)
+)

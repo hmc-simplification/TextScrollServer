@@ -1,9 +1,12 @@
-from crud import Trial, Trials
+"""Version 1 of the API."""
+
+from __future__ import unicode_literals, print_function, absolute_import, \
+    division
+
+from .users import User, Users
 
 
 endpoints = [
-    (Trial, "trial/<int:trial_id>"),
-    (Trials, "trials")
+    (User, "users/<string:user_id>"),
+    (Users, "users")
 ]
-
-__all__ = ('crud_api', 'endpoints')

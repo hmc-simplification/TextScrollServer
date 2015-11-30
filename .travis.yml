@@ -23,12 +23,13 @@ install:
     - pip install --upgrade pip
     - pip install -r requirements.txt
     - if [[ $TRAVIS_PYTHON_VERSION == 2.6 ]]; then pip install importlib; fi
+    - if [[ $TRAVIS_PYTHON_VERSION < 3.4 ]]; then pip install enum34; fi
 
 before_script:
     - mongo textscrolldb_test --eval 'db.addUser("travis", "test");'
 
 script:
-    - nosetests --with-coverage --with-doctest --cover-package=server
+    - nosetests
     - flake8 .
     - pep257 .
     - sphinx-build docs docs/_build

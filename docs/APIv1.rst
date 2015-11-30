@@ -1,6 +1,11 @@
 API version 1
 =============
 
+Documentation of the intended API for the first version of the backend
+server. Written by a non-web-developer, thus it may have some idiosyncracies.
+A living document - it does not necessarily represent the current state of the
+application, but it will be updated whenever possible.
+
 .. http:get:: /users
    :synopsis: List of all users.
 
