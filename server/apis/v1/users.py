@@ -61,9 +61,13 @@ class User(Resource):
                 return make_response(
                     "User with id {0} could not be found".format(user_id), 404
                 )
+            elif return_code == UserCodes.USER_INVALID:
+                return make_response("User id or password is invalid.", 400)
             elif return_code == UserCodes.USER_NOT_AUTHENTICATED:
                 return make_response("Authentication Failed", 403)
             else:
+                # How did this happen???
+                # TODO log something in these cases
                 raise Exception()
         except Exception:
             return make_response("An unknown error occurred.", 500)
@@ -122,6 +126,10 @@ class User(Resource):
             elif return_code == UserCodes.USER_UPDATED:
                 return make_response(
                     "User id {0} was updated.".format(user_id), 200
+                )
+            elif return_code == UserCodes.USER_UNCHANGED:
+                return make_response(
+                    "User id {0} was unchanged.".format(user_id), 304
                 )
             elif return_code == UserCodes.USER_INVALID:
                 return make_response("User id or password is invalid.", 400)
